@@ -48,32 +48,32 @@ func (m *methods) add(path string, fn handler, method string) *Route {
 	return &route
 }
 
-// Registering route handler for ``GET`` request on provided path
+// Get: Registering route handler for ``GET`` request on provided path
 func (m *methods) Get(path string, fn handler) *Route {
 	return m.add(path, fn, GET)
 }
 
-// Registering route handler for ``POST`` request on provided path
+// Post: Registering route handler for ``POST`` request on provided path
 func (m *methods) Post(path string, fn handler) *Route {
 	return m.add(path, fn, POST)
 }
 
-// Registering route handler for ``PUT`` request on provided path
+// Put: Registering route handler for ``PUT`` request on provided path
 func (m *methods) Put(path string, fn handler) *Route {
 	return m.add(path, fn, PUT)
 }
 
-// Registering route handler for ``DELETE`` request on provided path
+// Delete: Registering route handler for ``DELETE`` request on provided path
 func (m *methods) Delete(path string, fn handler) *Route {
 	return m.add(path, fn, DELETE)
 }
 
-// Registering route handler for ``OPTIONS`` request on provided path
+// Options: Registering route handler for ``OPTIONS`` request on provided path
 func (m *methods) Options(path string, fn handler) *Route {
 	return m.add(path, fn, OPTIONS)
 }
 
-// Registering route handler for ``HEAD`` request on provided path
+// Head: Registering route handler for ``HEAD`` request on provided path
 func (m *methods) Head(path string, fn handler) *Route {
 	return m.add(path, fn, HEAD)
 }

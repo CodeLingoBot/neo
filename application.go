@@ -46,7 +46,7 @@ func (a *Application) init(confFile string) {
 	}
 }
 
-// Handler interface ``ServeHTTP`` implementation.
+// ServeHTTP: Handler interface ``ServeHTTP`` implementation.
 // Method will accept all incomming HTTP requests, and pass requests to appropriate handlers if they are defined.
 func (a *Application) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	// log all unhandled panic's
@@ -118,7 +118,7 @@ func (a *Application) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-// Starting application instance. This will run application on port defined by configuration.
+// Start: Starting application instance. This will run application on port defined by configuration.
 func (a *Application) Start() {
 	a.flush()
 
@@ -137,7 +137,7 @@ func (a *Application) Start() {
 	}
 }
 
-// Defining paths for serving static files. For example if we say:
+// Serve: Defining paths for serving static files. For example if we say:
 // a.Serve("/some", "./mypath")
 // then if we require ``/some/js/file.js``, Neo will look for file at ``./mypath/js/file.js``.
 func (a *Application) Serve(url string, path string) {
@@ -151,14 +151,14 @@ func (a *Application) Serve(url string, path string) {
 	a.static.Serve(url, path)
 }
 
-// If you are planning to return templates from Neo route handler, then you have to compile them.
+// Templates: If you are planning to return templates from Neo route handler, then you have to compile them.
 // This method will accept list of paths/files and compile them.
 // You can use also paths with wildcards (example: /some/path/*).
 func (a *Application) Templates(templates ...string) {
 	compileTpl(templates...)
 }
 
-// Making new region instance. You can create multiple regions.
+// Region: Making new region instance. You can create multiple regions.
 func (a *Application) Region() *Region {
 	return a.makeRegion()
 }

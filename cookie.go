@@ -23,7 +23,7 @@ func (cookies Cookie) Del(key string) {
 	delete(cookies, key)
 }
 
-// Set *http.Cookie instance to Response
+// SetCustom: Set *http.Cookie instance to Response
 func (cookies Cookie) SetCustom(cookie *http.Cookie) {
 	cookies[cookie.Name] = cookie
 }

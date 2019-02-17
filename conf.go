@@ -82,7 +82,7 @@ func (c *Conf) loadDefaults() {
 	c.App.WriteTimeout = 0
 }
 
-// Will try to parse TOML configuration file.
+// Parse Will try to parse TOML configuration file.
 func (c *Conf) Parse(path string) {
 	c.loadDefaults()
 

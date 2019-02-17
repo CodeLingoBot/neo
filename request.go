@@ -33,7 +33,7 @@ func makeRequest(req *http.Request) *Request {
 	return request
 }
 
-// Parse incomming Body as JSON
+// JsonBody: Parse incomming Body as JSON
 func (r *Request) JsonBody(instance interface{}) error {
 	decoder := json.NewDecoder(r.Body)
 	defer r.Body.Close()

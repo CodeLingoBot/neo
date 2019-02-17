@@ -36,7 +36,7 @@ func makeResponse(request *http.Request, w http.ResponseWriter) *Response {
 // Creating Responses
 ///////////////////////////////////////////////////////////////////
 
-// Will produce JSON string representation of passed object,
+// Json Will produce JSON string representation of passed object,
 // and send it to client
 func (r *Response) Json(obj interface{}) error {
 	res, err := json.Marshal(obj)
@@ -48,7 +48,7 @@ func (r *Response) Json(obj interface{}) error {
 	return r.Raw(res)
 }
 
-// Will produce XML string representation of passed object,
+// Xml Will produce XML string representation of passed object,
 // and send it to client
 func (r *Response) Xml(obj interface{}) error {
 	res, err := xml.Marshal(obj)
@@ -60,12 +60,12 @@ func (r *Response) Xml(obj interface{}) error {
 	return r.Raw(res)
 }
 
-// Will send provided Text to client.
+// Text Will send provided Text to client.
 func (r *Response) Text(text string) error {
 	return r.Raw([]byte(text))
 }
 
-// Will look for template, render it, and send rendered HTML to client.
+// Tpl Will look for template, render it, and send rendered HTML to client.
 // Second argument is data which will be passed to client.
 func (r *Response) Tpl(name string, data interface{}) error {
 	log.Infof("Rendering template %s", name)
@@ -80,7 +80,7 @@ func (r *Response) Tpl(name string, data interface{}) error {
 	return nil
 }
 
-// Send Raw data to client.
+// Raw: Send Raw data to client.
 func (r *Response) Raw(data []byte) error {
 	r.data = data
 	return nil
@@ -97,17 +97,17 @@ func (r *Response) Write(b []byte) (int, error) {
 	return r.writer.Write(b)
 }
 
-// Get Header. Implements ResponseWriter.Header.
+// Header gets Header. Implements ResponseWriter.Header.
 func (r *Response) Header() http.Header {
 	return r.writer.Header()
 }
 
-// Write Header. Implements ResponseWriter.WriterHeader.
+// WriteHeader writes Header. Implements ResponseWriter.WriterHeader.
 func (r *Response) WriteHeader(s int) {
 	r.writer.WriteHeader(s)
 }
 
-// Get http.ResponseWriter directly
+// Writer gets http.ResponseWriter directly
 func (r *Response) Writer() http.ResponseWriter {
 	return r.writer
 }
@@ -124,7 +124,7 @@ func (r *Response) fileExists(file string) bool {
 	return false
 }
 
-// Find file, and send it to client.
+// File: Find file, and send it to client.
 func (r *Response) File(path string) error {
 	abspath, err := filepath.Abs(path)
 
@@ -161,7 +161,7 @@ func (r *Response) sendFile() {
 // Writing Response
 ///////////////////////////////////////////////////////////////////
 
-// If it is called, Neo will skip calling  ResponseWriter's write method.
+// SkipFlush: If it is called, Neo will skip calling  ResponseWriter's write method.
 // Usecase for this is when we render HTML template for example, because Neo uses Go html/template for
 // writing to ResponseWriter.
 func (r *Response) SkipFlush() {

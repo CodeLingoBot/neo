@@ -18,12 +18,12 @@ func (r CtxData) Get(key string) interface{} {
 	return r[key]
 }
 
-// Add new contextual data on key with provided value
+// Set adds new contextual data on key with provided value
 func (r CtxData) Set(key string, value interface{}) {
 	r[key] = value
 }
 
-// Delete contextual data on key
+// Del: Delete contextual data on key
 func (r CtxData) Del(key string) {
 	delete(r, key)
 }
@@ -64,7 +64,7 @@ type Ctx struct {
 	Errors []error
 }
 
-// Append error to list of errors for current http request.
+// Error: Append error to list of errors for current http request.
 // This function can be used from any part of your code which has access to current context
 func (c *Ctx) Error(err error) {
 	c.Errors = append(c.Errors, err)

@@ -21,7 +21,7 @@ func (b *EBus) InitEBus() {
 	b.eventList = events{}
 }
 
-// Registering listener for provided event.
+// On: Registering listener for provided event.
 func (e *EBus) On(event string, fn EvHandler) {
 	log.Debugf("registering event `%s`", event)
 	topic, ok := e.eventList[event]
@@ -34,7 +34,7 @@ func (e *EBus) On(event string, fn EvHandler) {
 	e.eventList[event] = topic
 }
 
-// Emitting event with data. One goroutine per emit will be created.
+// Emit: Emitting event with data. One goroutine per emit will be created.
 func (e *EBus) Emit(event string, data interface{}) {
 	go func() {
 		log.Debugf("emmiting event `%s`", event)

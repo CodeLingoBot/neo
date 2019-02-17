@@ -16,7 +16,7 @@ func init() {
 	log.Level = golog.INFO
 }
 
-// Getting Neo Application instance. This is singleton function.
+// App: Getting Neo Application instance. This is singleton function.
 // First time when we call this method function will try to parse configuration for Neo application.
 // It will look for configuration file provided by ``--config`` CLI argument (if exist).
 func App() *Application {

@@ -63,7 +63,7 @@ func (s *Static) match(url string) (string, error) {
 	return "", errors.New("cannot match " + url + " in static")
 }
 
-// Serving static files from some directory.
+// Serve: Serving static files from some directory.
 // If provided url is for example ``/assets``,
 // then all requests starting with ``/assets`` will be served from directory
 // provided by ``path`` parameter.

@@ -31,7 +31,7 @@ type interceptor struct {
 	middlewares []appliable
 }
 
-// Adding new middleware into chain of middlewares.
+// Use: Adding new middleware into chain of middlewares.
 func (m *interceptor) Use(fn Middleware) {
 	m.middlewares = append(m.middlewares, appliable(&fn))
 }
